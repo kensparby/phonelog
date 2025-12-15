@@ -1,0 +1,18 @@
+{
+  "order": "Ordre",
+  "article": "Artikkel",
+  "case": "Sak",
+  "customer": "Kunde",
+  "name": "Navn",
+  "email": "E-post",
+  "phone": "Telefon",
+  "callNotesRouter": "Samtalenotat-ruter",
+  "typeAndPressEnter": "Skriv og trykk Enter…",
+  "clear": "Tøm",
+  "addToLog": "Legg til i logg",
+  "logMostRecentFirst": "Logg (nyeste først)",
+  "noEntriesYet": "Ingen oppføringer enda",
+  "copied": "Kopiert",
+    "downloadLog": "Last ned logg",
+    "downloadedCsvClearLog": "Logg nedlastet. Tømme loggoppføringer?"
+}
