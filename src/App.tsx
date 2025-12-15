@@ -10,13 +10,13 @@ import { t } from '@/i18n'
 type FieldKey = 'order' | 'article' | 'case' | 'customer' | 'name' | 'email' | 'phone'
 
 function routeInput(value: string): FieldKey | null {
+  if (value.includes('@')) return 'email'
+  if (/^cs/i.test(value)) return 'case'
   if (/^o/i.test(value)) return 'order'
   if (/^a/i.test(value)) return 'article'
-  if (/^cs/i.test(value)) return 'case'
   if (/^k/i.test(value)) return 'customer'
   if (/^n/i.test(value)) return 'name'
   if (/^t/i.test(value)) return 'phone'
-  if (value.includes('@')) return 'email'
 
   return null
 }
