@@ -121,23 +121,23 @@ function App() {
     mainInputRef.current?.focus()
   }
 
-  function removeTagFromLog(entryIdx: number, key: FieldKey, index: number) {
-    setLog(prev => {
-      const updated = prev.map((entry, idx) => {
-        if (idx !== entryIdx) return entry
-        return {
-          ...entry,
-          [key]: (entry as any)[key].filter((_: any, i: number) => i !== index),
-        }
-      })
-      try {
-        localStorage.setItem('phonelog-log', JSON.stringify({ ts: Date.now(), log: updated }))
-      } catch (e) {
-        // ignore
-      }
-      return updated
-    })
-  }
+  // function removeTagFromLog(entryIdx: number, key: FieldKey, index: number) {
+  //   setLog(prev => {
+  //     const updated = prev.map((entry, idx) => {
+  //       if (idx !== entryIdx) return entry
+  //       return {
+  //         ...entry,
+  //         [key]: (entry as any)[key].filter((_: any, i: number) => i !== index),
+  //       }
+  //     })
+  //     try {
+  //       localStorage.setItem('phonelog-log', JSON.stringify({ ts: Date.now(), log: updated }))
+  //     } catch (e) {
+  //       // ignore
+  //     }
+  //     return updated
+  //   })
+  // }
 
   function escapeCsvCell(v: string) {
     if (v == null) return ''
