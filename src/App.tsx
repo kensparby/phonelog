@@ -207,7 +207,7 @@ function App() {
               ref={mainInputRef}
               placeholder={t('typeAndPressEnter')}
               onKeyDown={e => {
-                e.preventDefault();
+                if (['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8'].includes(e.key)) e.preventDefault();
                 handleMainInput(e.currentTarget.value, e.key);
                 // if (e.key === 'Enter') {
                 //   handleMainInput(e.currentTarget.value, e.key)
