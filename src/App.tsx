@@ -226,7 +226,7 @@ function App() {
                             e.preventDefault()
                             removeTagFromForm(key, i)
                           }}
-                          className={`rounded-full bg-slate-50! text-sky-700! dark:bg-sky-700! dark:text-slate-50! ${copiedIds.includes(`form-${key}-${i}`) ? 'bg-green-100 border-green-200' : ''}`}>
+                          className={`rounded-full dark:bg-slate-50! dark:text-sky-700! bg-sky-700! text-slate-50! ${copiedIds.includes(`form-${key}-${i}`) ? 'bg-green-100 border-green-200' : ''}`}>
                           {val}
                         </Button>
                       ))
@@ -237,12 +237,12 @@ function App() {
 
               <div className="flex gap-2 justify-end">
                 <Button
-                  className={`bg-slate-50! text-sky-700! dark:bg-sky-700! dark:text-slate-50!`}
+                  className={`dark:bg-slate-50! dark:text-sky-700! bg-sky-700! text-slate-50{!`}
                   onClick={() => setFields({ order: [], article: [], case: [], customer: [], name: [], email: [], phone: [] })}>
                   {t('clear')}
                 </Button>
                 <Button
-                  className={`bg-slate-50! text-sky-700! dark:bg-sky-700! dark:text-slate-50!`}
+                  className={`dark:bg-slate-50! dark:text-sky-700! bg-sky-700! text-slate-50!`}
                   onClick={addToLog}>{t('addToLog')}</Button>
               </div>
             </div>
@@ -253,7 +253,9 @@ function App() {
         <div>
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-medium">{t('logMostRecentFirst')}</h3>
-            <Button onClick={downloadCsvAndMaybeClear}>{t('downloadLog')}</Button>
+            <Button
+              className={`dark:bg-slate-50! dark:text-sky-700! bg-sky-700! text-slate-50!`}
+              onClick={downloadCsvAndMaybeClear}>{t('downloadLog')}</Button>
           </div>
           <div className="space-y-3">
             {log.length === 0 && <div className="text-sm text-muted-foreground">{t('noEntriesYet')}</div>}
