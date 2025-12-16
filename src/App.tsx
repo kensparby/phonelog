@@ -272,7 +272,7 @@ function App() {
                               //   e.preventDefault()
                               //   removeTagFromLog(idx, k, i)
                               // }}
-                          className={`rounded-full bg-gray-200! text-muted-foreground! ${copiedIds.includes(`log-${idx}-${k}-${i}`) ? 'bg-green-100 border-green-200' : ''}`}>
+                          className={`rounded-full bg-gray-200! dark:text-muted-foreground! ${copiedIds.includes(`log-${idx}-${k}-${i}`) ? 'bg-green-100 border-green-200' : ''}`}>
                               {val}
                             </Button>
                           ))
