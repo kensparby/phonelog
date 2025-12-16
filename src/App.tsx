@@ -207,6 +207,7 @@ function App() {
               ref={mainInputRef}
               placeholder={t('typeAndPressEnter')}
               onKeyDown={e => {
+                e.preventDefault();
                 handleMainInput(e.currentTarget.value, e.key);
                 // if (e.key === 'Enter') {
                 //   handleMainInput(e.currentTarget.value, e.key)
