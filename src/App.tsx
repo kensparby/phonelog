@@ -193,8 +193,8 @@ function App() {
       <div className="w-full max-w-3xl space-y-6">
         <Card>
           <CardHeader>
-              <CardTitle>{t('callNotesRouter')}</CardTitle>
-            </CardHeader>
+            <CardTitle>{t('callNotesRouter')}</CardTitle>
+          </CardHeader>
           <CardContent className="space-y-4">
             <Input
               ref={mainInputRef}
@@ -214,7 +214,7 @@ function App() {
                   <Label className="w-24 capitalize flex-shrink-0">{t(key)}:</Label>
                   <div className="flex-1 flex flex-wrap gap-2 items-center">
                     {fields[key].length === 0 ? (
-                      <div className="text-sm text-muted-foreground">—</div>
+                      <div className="text-sm dark:text-muted-foreground">—</div>
                     ) : (
                       fields[key].map((val, i) => (
                         <Button
@@ -223,10 +223,10 @@ function App() {
                           size="sm"
                           onClick={() => copyWithFeedback(`form-${key}-${i}`, val)}
                           onContextMenu={e => {
-                          e.preventDefault()
-                          removeTagFromForm(key, i)
+                            e.preventDefault()
+                            removeTagFromForm(key, i)
                           }}
-                          className={`rounded-full bg-gray-200! ${copiedIds.includes(`form-${key}-${i}`) ? 'bg-green-100 border-green-200' : ''}`}>
+                          className={`rounded-full bg-slate-50! text-sky-700! dark:bg-sky-700! dark:text-slate-50! ${copiedIds.includes(`form-${key}-${i}`) ? 'bg-green-100 border-green-200' : ''}`}>
                           {val}
                         </Button>
                       ))
@@ -236,10 +236,14 @@ function App() {
               ))}
 
               <div className="flex gap-2 justify-end">
-                <Button onClick={() => setFields({ order: [], article: [], case: [], customer: [], name: [], email: [], phone: [] })}>
+                <Button
+                  className={`bg-slate-50! text-sky-700! dark:bg-sky-700! dark:text-slate-50!`}
+                  onClick={() => setFields({ order: [], article: [], case: [], customer: [], name: [], email: [], phone: [] })}>
                   {t('clear')}
                 </Button>
-                <Button onClick={addToLog}>{t('addToLog')}</Button>
+                <Button
+                  className={`bg-slate-50! text-sky-700! dark:bg-sky-700! dark:text-slate-50!`}
+                  onClick={addToLog}>{t('addToLog')}</Button>
               </div>
             </div>
           </CardContent>
@@ -272,7 +276,7 @@ function App() {
                               //   e.preventDefault()
                               //   removeTagFromLog(idx, k, i)
                               // }}
-                          className={`rounded-full bg-gray-200! dark:text-muted-foreground! ${copiedIds.includes(`log-${idx}-${k}-${i}`) ? 'bg-green-100 border-green-200' : ''}`}>
+                              className={`rounded-full bg-slate-50! text-sky-700! dark:bg-sky-700! dark:text-slate-50! ${copiedIds.includes(`log-${idx}-${k}-${i}`) ? 'bg-green-100 border-green-200' : ''}`}>
                               {val}
                             </Button>
                           ))
