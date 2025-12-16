@@ -9,14 +9,21 @@ import { t } from '@/i18n'
 // routing logic
 type FieldKey = 'order' | 'article' | 'case' | 'customer' | 'name' | 'email' | 'phone'
 
-function routeInput(value: string): FieldKey | null {
-  if (value.includes('@')) return 'email'
-  if (/^cs/i.test(value)) return 'case'
-  if (/^o/i.test(value)) return 'order'
-  if (/^a/i.test(value)) return 'article'
-  if (/^k/i.test(value)) return 'customer'
-  if (/^n/i.test(value)) return 'name'
-  if (/^t/i.test(value)) return 'phone'
+function routeInput(key: string): FieldKey | null {
+  // if (value.includes('@')) return 'email'
+  // if (/^cs/i.test(value)) return 'case'
+  // if (/^o/i.test(value)) return 'order'
+  // if (/^a/i.test(value)) return 'article'
+  // if (/^k/i.test(value)) return 'customer'
+  // if (/^n/i.test(value)) return 'name'
+  // if (/^t/i.test(alue)) return 'phone'
+  if (key == 'F1') return 'order'
+  if (key == 'F2') return 'case'
+  if (key == 'F3') return 'article'
+  if (key == 'F4') return 'customer'
+  if (key == 'F5') return 'name'
+  if (key == 'F6') return 'email'
+  if (key == 'F7') return 'phone'
 
   return null
 }
@@ -69,8 +76,8 @@ function App() {
     }
   }, [])
 
-  function handleMainInput(value: string) {
-    const fieldKey = routeInput(value)
+  function handleMainInput(value: string, key: string) {
+    const fieldKey = routeInput(key)
     if (!fieldKey) return
 
     const val = stripPrefix(value)
@@ -200,10 +207,11 @@ function App() {
               ref={mainInputRef}
               placeholder={t('typeAndPressEnter')}
               onKeyDown={e => {
-                if (e.key === 'Enter') {
-                  handleMainInput(e.currentTarget.value)
-                  e.currentTarget.value = ''
-                }
+                handleMainInput(e.currentTarget.value, e.key);
+                // if (e.key === 'Enter') {
+                //   handleMainInput(e.currentTarget.value, e.key)
+                //   e.currentTarget.value = ''
+                // }
               }}
             />
 
